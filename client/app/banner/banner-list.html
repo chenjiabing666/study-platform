@@ -1,0 +1,143 @@
+
+<div class="page page-table" ng-controller="BannerCtrl">
+    <div class="row ui-section" ng-show="isShow==1">
+        <div class="col-md-12">
+            <div class="col-md-6 clearfix">
+                <h2 class="section-header">
+                    广告列表
+                </h2>
+            </div>
+        </div>
+
+        
+
+         <div class="row">
+                    <label class="col-sm-3 col-xs-3">
+                        <span >平台:</span>
+                        
+                        <select  class="border-radius-5 border-default ml-10 input-default input-w-50" data-ng-model="platform" data-ng-change="search()">
+                          <option value="">不限</option>
+                          <option value="1">移动应用Android</option>
+                          <option  value="2" >移动应用IOS</option>
+                        </select> 
+                    </label>
+        </div>
+
+        <div class="row">
+            <div class="col-md-2 clearfix">
+                <a class=" md-primary add-product" href="#/banner/banner-add">
+                    添加banner
+                </a>
+            </div>
+        </div>
+
+
+
+        <div class="col-md-12">
+            <section class="panel panel-default table-dynamic">
+                <table class="table table-bordered table-striped table-responsive">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="th">
+                                    编号
+                                </div>
+                            </th>
+                            <!-- <th>
+                                <div class="th">
+                                    平台
+                                </div>
+                            </th> -->
+                            <th>
+                                <div class="th">
+                                    广告展示
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th">
+                                    广告位置
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th">
+                                   状态
+                                </div>
+                            </th>
+                            <th>
+                                <div class="th">
+                                    创建时间
+                                </div>
+                            </th>
+                            
+                            <th>
+                                <div class="th">
+                                    操作
+                                </div>
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr class="delete-{{store.bannerId}}" data-ng-repeat="store in stores">
+                            <td ng-bind="store.bannerId"></td>
+<!-- 
+                            <td class="bannerlink">
+                                
+                                <p ng-if="store.bannerPageLocation==1">首页</p>
+                                <p ng-if="store.bannerPageLocation==2">专题页</p>
+
+                            </td> -->
+
+                            <td class="bannerLink">
+                                <a href="{{store.imageUrl}}" target="_blank"><img src="{{store.imageUrl}}" style="height: 100px;width: 100px;"></a>
+                            </td>
+
+                            <td ng-bind="store.bannerLocation"></td>
+
+                            <td class="bannerlink">
+                                <p ng-if="store.activated==1">启用</p>
+                                <p ng-if="store.activated==2">禁用</p>
+                            </td>
+
+                                
+                                <td class="bannerlink" ng-bind="store.createdDate"></td>
+
+                                <td class="opertation" nowrap="nowrap">
+                                    
+                                    <a href="#/banner/banner-change?id={{store.bannerId}}">
+                                        修改
+                                    </a>
+                                    <!-- <a href="" ng-click="topBanner(store.bannerId)">
+                                        置顶
+                                    </a> -->
+
+                                    <a href="" ng-click="deleteBanner(store.bannerId)">
+                                        删除
+                                    </a>
+                                </td>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <footer class="table-footer">
+                    <div class="row">
+                        <div class="col-md-6 page-num-info">
+                            <span>
+                                显示
+                                <select data-ng-change="onNumPerPageChange()" data-ng-model="numPerPage" data-ng-options="num for num in numPerPageOpt">
+                                </select>
+                                条 
+                当前页{{filteredStores.length}}条/总{{total}}条
+                            </span>
+                        </div>
+                        <div class="col-md-6 text-right pagination-container">
+                            <uib-pagination boundary-links="true" class="pagination-sm" items-per-page="numPerPage" max-size="4" next-text="›" ng-change="select(currentPage)" ng-model="currentPage" previous-text="‹" rotate="false" total-items="total">
+                            </uib-pagination>
+                        </div>
+                    </div>
+                </footer>
+            </section>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,225 @@
+
+
+<section class="page-form-ele page" ng-controller="TaskKindAddCtrl">
+
+
+    <div class="row ui-section">
+        <div class="col-lg-8 clearfix"> <h2 class="section-header">开发者认证</h2> </div>
+        <div class="col-md-8 clearfix"> 
+            <md-button class="md-raised btn-w-md md-primary changeClick" ng-click="backClick()">返回</md-button><div class="divider"></div>
+        </div>
+        <div class="col-md-12" ng-show="isShow==1">
+            <section class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row taskKind-detail" >
+                        <div class="col-lg-8 col-lg-offset-2">
+
+                            <div layout="column" ng-cloak class="md-inline-form inputdemoBasicUsage">
+                                <md-content layout-padding>
+                                <form name="taskKindForm" class="taskKindForm">
+
+
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">认证类型</label>
+                                        <div class="col-sm-9">
+                                            <select name="select" id="isRecommend" data-ng-change="search()" data-ng-model="type">
+                                                <option  value="">请选择</option>
+                                                <option  value="1">个人开发者</option>
+                                                <option  value="2">企业开发者</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+
+                                    
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">注册账号：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="userName">
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div class="form-group clearfix" ng-show="type==2">
+                                        <label for="" class="col-sm-3 control-label">企业名称</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="enterpriseName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix" ng-show="type==1">
+                                        <label for="" class="col-sm-3 control-label">个人姓名：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="realName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">出品人：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="publishName">
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="form-group clearfix" ng-show="type==2">
+                                        <label for="" class="col-sm-3 control-label">营业执照：</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="taskKindFile taskKindFile" ng-model="file"  multiple ng-submit="doUploadPhoto()" onchange="angular.element(this).scope().doUploadPhoto(this)">
+                                            <ul class="img-list "  style="height: 50px;"> </ul> 
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix" ng-show="type==2">
+                                        <label for="" class="col-sm-3 control-label">营业执照注册号：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="number">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group clearfix" ng-show="type==2">
+                                        <label for="" class="col-sm-3 control-label">注册地址：</label>
+                                        <div class="col-sm-9">
+                                           <select data-ng-model="registerCode"  data-ng-change="search()">
+                                                <option  value="">请选择</option>
+                                                <option data-ng-repeat="province in provinces" value="{{province.provinceCode}}">{{province.provinceName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix" ng-show="type==1" >
+                                        <label for="" class="col-sm-3 control-label">身份证照片：</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="taskKindFile taskKindFile" ng-model="file" accept="image/*" multiple ng-submit="doUploadPhoto()" onchange="angular.element(this).scope().doUploadPhoto(this)">
+                                            <ul class="img-list "  style="height: 50px;"> </ul> 
+                                        </div>
+                                    </div>
+
+
+                                    
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">联系人姓名：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="contactPerson">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">联系人地址：</label>
+                                        <div class="col-sm-9">
+                                            <select data-ng-model="provinceCode" data-ng-change="search()">
+                                                <option  value="">请选择</option>
+                                                <option data-ng-repeat="province in provinces" value="{{province.provinceCode}}">{{province.provinceName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">详细地址：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="contactAddress" placeholder="请填写联系人详细地址">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">电子邮箱：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="email">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">手机号码：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="contactMobile">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">QQ：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="qq">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">官网地址(选填)：</label>
+                                        <div class="col-sm-9">
+                                            <input class="form-control" class="title" ng-model="website">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <div class="col-sm-9">
+                                            <input type="checkbox"  class="title" ng-model="isAgree" value="1"> 我已阅读并同意《服务条款》
+                                        </div>
+                                    </div>
+                                    
+
+                                    <!-- <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">下单选择图片：</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="taskKindFile taskKindFile" ng-model="file" accept="image/*" multiple ng-submit="doUploadPhoto()" onchange="angular.element(this).scope().doUploadPhoto(this)">
+                                            <ul class="img-list "  style="height: 50px;"> </ul> 
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">抢单展示图片：</label>
+                                        <div class="col-sm-9">
+                                            <input type="file" class="taskKindFile taskKindFile" ng-model="taskKind.showImageUrl" accept="image/*" multiple ng-submit="doUploadPhoto2()" onchange="angular.element(this).scope().doUploadPhoto2(this)">
+                                            <ul class="img-list "  style="height: 50px;"> </ul> 
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">是否开启饮酒：</label>
+                                        <div class="col-sm-9">
+                                            <select name="select" id="homeRecommend" data-ng-change="search()" data-ng-model="taskKind.isOpenDrink">
+                                                <option  value="">请选择</option>
+                                                <option  value="1">是</option>
+                                                <option  value="2">否</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">是否开启匿名：</label>
+                                        <div class="col-sm-9">
+                                            <select name="select" id="isRecommend" data-ng-change="search()" data-ng-model="taskKind.isOpenAnonymity">
+                                                <option  value="">请选择</option>
+                                                <option  value="1">是</option>
+                                                <option  value="2">否</option>
+                                            </select>   
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">标题说明：</label>
+                                    </div>
+                                    <div class="form-group clearfix">
+                                        <section class="panel panel-default">
+                                            <div class="panel-body">
+                                                <div class="col-sm-12">
+                                                    <textarea style="width: 100%;min-height: 300px;padding: 15px;" ng-model="taskKind.titleRemark" class="ui-editor"></textarea>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+ -->
+                                    <div layout layout-sm='column' class="changeConfirm add-btn" ng-show="isAgree==1">
+                                        <md-button class="md-raised btn-w-md md-primary" ng-click="addtaskKind()">同意并注册开发者</md-button><div class="divider"></div>
+                                    </div>
+
+                                </form>
+                            </md-content>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </div>
+</div>
+</section>

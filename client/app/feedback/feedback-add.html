@@ -1,0 +1,41 @@
+
+
+<section class="page-form-ele page" ng-controller="ChangeFeedbackCtrl">
+
+
+     <div class="row ui-section">
+        <div class="col-lg-8 clearfix"> <h2 class="section-header">回复反馈</h2> </div>
+
+        <div class="col-md-8 clearfix"> 
+            <button class="btn btn-primary btn-lg changeClick" ng-click="backClick()">返回</button><div class="divider"></div>
+        </div>
+        
+        <div class="col-md-12" ng-show="isShow==1">
+            <section class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row banner-detail" >
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="form-group">
+                                <label>回复内容</label>
+                                <div class="form-controller">
+                                    <textarea cols="60" rows="20" ng-model="content"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <button class="btn btn-primary btn-lg" ng-click="reply()">回复</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>    
+        </div>
+
+
+    </div>
+</section>
+
+<style type="text/css">
+    .ta-editor{overflow: hidden !important;}
+</style>

@@ -1,0 +1,301 @@
+    
+
+<section class="page-form-ele page" ng-controller="AddAdminCtrl">
+
+
+    <div class="row ui-section">
+        <div class="col-lg-8 clearfix"> <h2 class="section-header">添加管理员</h2> </div>
+
+        <div class="col-md-8 clearfix" ng-if="isShow == 1"> 
+            <md-button class="md-raised btn-w-md md-primary changeClick" ng-click="backClick()">返回</md-button><div class="divider"></div>
+        </div>
+        
+        <div class="col-md-12" ng-if="isShow == 1">
+            <section class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row banner-detail" >
+                        <div class="col-lg-8 col-lg-offset-2">
+
+                            <div layout="column" ng-cloak class="md-inline-form inputdemoBasicUsage">
+                                <md-content layout-padding>
+                                    <form name="userForm">
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">邮箱：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="adminName" ng-model="admin.email">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">手机号码：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="account" ng-model="admin.mobile">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">账号：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="adminPsd" ng-model="admin.account">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">密码：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="adminPsd" ng-model="admin.password">
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">账号状态：</label>
+                                            <div class="col-sm-9">
+                                                <select ng-model="admin.activated" class="form-controller bannerLink">
+                                                    <option value="1">启用</option>
+                                                    <option value="0" >禁用</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">权限描述：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="adminPsd" ng-model="admin.description">
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">角色ID：</label>
+                                            <div class="col-sm-9">
+                                                <select name="select" id="sel" data-ng-model="admin.roleId">
+                                                    <option value="" >全部</option>
+                                                    <option  value="{{r.roleId}}" ng-repeat="r in roleList" >{{r.roleName}}</option>
+                                                </select> 
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">描述：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="adminPsd" ng-model="admin.description">
+                                            </div>
+                                        </div> -->
+
+                                        <div class="rolexia1 clearfix">
+                                                <label class="col-sm-3 control-label">权限设置：</label>
+                                        </div>
+                                        
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">管理员模块：</div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="1" />管理员列表
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="2" />添加管理员
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">用户模块：</div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="3,36,49" />用户列表
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="50" />重置密码
+                                            </div>
+ -->
+                                        </div>
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">配置模块：</div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="37" />配置修改
+                                            </div>
+                                        </div>
+
+
+                                         <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">企业审核模块：</div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="38" />企业审核列表
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="39" />回复
+                                            </div> -->
+
+                                        </div>
+
+                                         <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">模块管理</div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="39" />模块列表
+                                            </div>
+
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="40" />添加模块
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="42" />更新安装包
+                                            </div> -->
+
+                                        </div>
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">专家模块：</div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="41" />专家列表
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="43" />添加专家
+                                            </div>
+
+                                        </div>
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">技能模块：</div>
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="42" /> 技能列表
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="44" />添加技能
+                                            </div>
+                                        </div>
+
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">资料库模块：</div>
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="46" /> 资料库列表
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="47" />添加资料
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="49" />应用认证审核
+                                            </div> -->
+                                        </div>
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">问题模块：</div>
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="48" /> 问题列表
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="45" />添加问题
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">平台收支模块：</div>
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="49" /> 平台收支列表
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="45" />添加问题
+                                            </div> -->
+                                        </div>
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">发票模块：</div>
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="50" /> 发票列表
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="45" />添加问题
+                                            </div> -->
+                                        </div>
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">行业数据指标模块：</div>
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="51" /> 行业数据指标列表
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="52" />添加行业数据指标
+                                            </div>
+                                        </div>
+
+
+                                        <div class="form-group col-sm-12 col-sm-offset-1" >
+                                            <div class="col-sm-3 col-md-3">报告规则管理模块：</div>
+                                             
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="53" /> 雷达图
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="54" /> 企业竞争力
+                                            </div>
+
+                                            <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="55" /> 市场定位
+                                            </div>
+
+                                             <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="56" /> SWOT
+                                            </div>
+
+                                            <!-- <div class="col-sm-3 col-md-3">
+                                                <input type="checkbox" class="form-controller" style="margin-right:-40px" name="authoritys" value="45" />添加问题
+                                            </div> -->
+                                        </div>
+
+
+                                        
+
+
+
+
+                                        
+                                       <!--  <div class="form-group col-sm-12 col-sm-offset-1" ng-repeat="auth in authorityList">
+                                           <div class="col-sm-3 ">{{auth.description}}:</div>
+                                           <div class="col-sm-3" ng-repeat="son in auth.authorityList">
+                                           <input name='authoritys' style="width: 10px;" type="checkbox" value='{{son.authorityId}}'>
+                                           <span>{{son.pageName}}</span>
+                                           </div>
+                                       </div> -->
+
+                                        </div>
+
+                                        
+                                        <div layout layout-sm='column' class="changeConfirm add-btn">
+                                            <md-button class="md-raised btn-w-md md-primary" ng-click="addAdmin()">确定添加</md-button><div class="divider"></div>
+                                        </div>
+                                    </form>
+                                </md-content>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>    
+        </div>
+    </div>
+</section>

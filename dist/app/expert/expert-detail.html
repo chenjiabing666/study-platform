@@ -1,0 +1,99 @@
+
+
+<section class="page-form-ele page" ng-controller="ExpertDetailCtrl">
+
+
+    <div class="row ui-section"  >
+        <div class="col-lg-8 clearfix"> <h2 class="section-header">专家详情</h2> </div>
+        <div class="col-md-8 clearfix"> 
+            <md-button class="md-raised btn-w-md md-primary changeClick" ng-click="backClick()">返回</md-button><div class="divider"></div>
+        </div>
+        <div class="col-md-12" ng-show="isShow==1">
+            <div class="row">
+                        <div class="col-md-2"></div>
+                         <div class="col-md-4">
+                            <!-- <a href="#/expert/expert-change?expertId={{expert.expertId}}" class="btn btn-primary">钱包</a> -->
+                        </div>
+
+                    </div>
+            <section class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row expert-detail" >
+                        <div class="col-lg-8 col-lg-offset-2" class="videoBg">
+
+                            <div layout="column" ng-cloak class="md-inline-form inputdemoBasicUsage">
+                                <md-content layout-padding>
+                                    <form name="expertForm" class="expertForm">
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">专家姓名：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="expertName" ng-model="expert.expertName">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">专家介绍：</label>
+                                            <div class="col-sm-9">
+                                                <!-- <input class="form-control" class="expertPsd" ng-model="expert.mobile"> -->
+                                                <textarea cols="60" rows="10" ng-model="expert.expertIntroduction"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">专家电话：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="expertName" ng-model="expert.mobile">
+                                            </div>
+                                        </div>
+                                        
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">擅长技能：</label>
+                                            <div class="col-sm-9">
+                                                <span ng-repeat="skill in skillList">
+                                                    <input type="checkbox" name="skill" value="{{skill.skillId}}" ng-checked="expert.expertSkill.indexOf(skill.skillId)!=-1">{{skill.content}}&nbsp&nbsp&nbsp&nbsp
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">专家图片：</label>
+                                            <div class="col-sm-9">
+                                                <input type="file" class="bannerFile" ng-model="expert.expertPhoto" accept="image/*" multiple ng-submit="doUploadPhoto()" onchange="angular.element(this).scope().doUploadPhoto(this)">
+                                                <ul class="img-list"  style="height: 100px;"> </ul>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">专家排序：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="expertName" ng-model="expert.expertSort">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">专家价格：</label>
+                                            <div class="col-sm-9">
+                                                <input class="form-control" class="expertName" ng-model="expert.price">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-3 control-label">状态：</label>
+                                            <div class="col-sm-9">
+                                                <!-- <input class="form-control" class="userPsd" ng-model="user.mobile"> -->
+                                                <select name="status" ng-model="expert.status">
+                                                    <option value="1" ng-selected="expert.status==1">启用</option>
+                                                    <option value="0" ng-selected="expert.status==0">关闭</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                    <div layout layout-sm='column' class="changeConfirm add-btn">
+                                        <md-button class="md-raised btn-w-md md-primary" ng-click="modifyExpert()">确定修改</md-button><div class="divider"></div>
+                                    </div>
+
+                                    </form>
+    </div>
+</section>

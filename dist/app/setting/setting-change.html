@@ -1,0 +1,103 @@
+
+
+<section class="page-form-ele page" ng-controller="ChangeSettingCtrl">
+
+
+    <div class="row ui-section">
+        <div class="col-md-12"></div>
+        <div class="col-md-8 clearfix"> <h2 class="section-header">系统参数设置</h2> </div>
+        <!-- <div class="col-md-8 clearfix"> 
+            <md-button class="md-raised btn-w-md md-primary changeClick" ng-click="backClick()">返回</md-button><div class="divider"></div>
+        </div> -->
+        <div class="col-md-12" ng-show="isShow==1">
+            <section class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row banner-detail" >
+                        <div class="col-lg-8 col-lg-offset-2">
+
+                            <div layout="column" ng-cloak class="md-inline-form inputdemoBasicUsage">
+                                <md-content layout-padding>
+                                    <form name="bannerForm" id="bannerForm">
+                                     
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">公司名称:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.companyName" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">公司电话:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.companyMobile" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">公司地址:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.companyAddress" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">版权声明:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.copyRight" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">pro报告的价格:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.proPrice" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">付费视频的价格:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.videoPrice" />
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">年卡会员的价格:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" ng-model="config.yearPrice" />
+                                            </div>
+                                        </div>
+
+
+                                        <!-- <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">关于我们:</label>
+                                            <div class="col-sm-8">
+                                                <textarea ng-model="config.aboutUs" rows="10" cols="50"></textarea>
+                                            </div>
+                                        </div> -->
+
+
+                                        <!-- <div class="form-group clearfix">
+                                            <label for="" class="col-sm-4 control-label">版权声明:</label>
+                                            <div class="col-sm-8">
+                                                <textarea ng-model="config.copyRight" rows="10" cols="50"></textarea>
+                                            </div>
+                                        </div> -->
+
+                                        
+                                        
+                                        <div class="form-group text-center clearfix">
+                                            <md-button class="md-raised btn-w-md md-primary" ng-click="modifySetting()">保存</md-button><div class="divider"></div>
+                                        </div>
+
+                                    </form>
+                                </md-content>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>    
+        </div>
+    </div>
+</section>
