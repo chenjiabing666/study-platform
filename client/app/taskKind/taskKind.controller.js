@@ -63,7 +63,7 @@
 
 
         //获取地区
-        $http.post('http://localhost:8080/blue-server/' + 'address/getProvinces.do',{},{params:{
+        $http.post('http://localhost:8080/study-server/' + 'address/getProvinces.do',{},{params:{
             }}).success(function (data) {
                 if (data.code == 0) {
                     $scope.provinces=data.result;
@@ -77,7 +77,7 @@
             $scope.authDate=$("#authDate").val();
 
 
-            $http.post('http://localhost:8080/blue-server/' + 'app/getExaminList.do',{},{params:{
+            $http.post('http://localhost:8080/study-server/' + 'app/getExaminList.do',{},{params:{
                 
                 pageNum:pageNum,
                 pageSize:pageSize,
@@ -159,7 +159,7 @@
 
 
         init = function() {
-            $http.post('http://localhost:8080/blue-server/' + 'app/getExaminList.do',{},{params:{
+            $http.post('http://localhost:8080/study-server/' + 'app/getExaminList.do',{},{params:{
                 pageNum:1,
                 pageSize:$scope.numPerPage,
             }}).success(function (data) {
@@ -296,7 +296,7 @@
             //批量审核成功或者审核成功
             $scope.deleteList = function(status){
 
-                var modifyTopicUrl ="http://localhost:8080/blue-server/"+"app/exmain.do";// 接收上传文件的后台地址
+                var modifyTopicUrl ="http://localhost:8080/study-server/"+"app/exmain.do";// 接收上传文件的后台地址
                     console.log($scope.selected);
                     var temp = "";
 
@@ -373,7 +373,7 @@
 
 
 
-           $http.post('http://localhost:8080/blue-server/' + 'taskKind/getTaskKindList.do',{},{params:{
+           $http.post('http://localhost:8080/study-server/' + 'taskKind/getTaskKindList.do',{},{params:{
             taskKindId:$scope.kwTaskKindId,
 
                 userId:$scope.kwUserId ,
@@ -418,7 +418,7 @@
                             .cancel('取消');
                             $mdDialog.show(confirm).then(function() {
                     // console.log('确定')
-                    $http.post("http://localhost:8080/blue-server/"+"taskKind/deleteTaskKind.do?",{},{params:{
+                    $http.post("http://localhost:8080/study-server/"+"taskKind/deleteTaskKind.do?",{},{params:{
                         taskKindId:id
                     }}).success(function (data){
                         if(data.errorCode == 0){
@@ -459,7 +459,7 @@
                 .ok('确定')
                 .cancel('取消');
                 $mdDialog.show(confirm).then(function(){
-                    $http.post("http://localhost:8080/blue-server/"+"elite/addElite.do?",{},{params:{
+                    $http.post("http://localhost:8080/study-server/"+"elite/addElite.do?",{},{params:{
                         taskKindId:id,
                     }}).success(function(data){
                         if(data.errorCode == 0){
@@ -539,7 +539,7 @@
 
 
         // //获取地区
-        // $http.post('http://localhost:8080/blue-server/' + 'address/getProvinces.do',{},{params:{
+        // $http.post('http://localhost:8080/study-server/' + 'address/getProvinces.do',{},{params:{
         //     }}).success(function (data) {
         //         if (data.code == 0) {
         //             $scope.provinces=data.result;
@@ -553,14 +553,10 @@
             $scope.authDate=$("#authDate").val();
 
 
-            $http.post('http://localhost:8080/blue-server/' + 'invoice/getInvoiceList.do',{},{params:{
+            $http.post('http://localhost:8080/study-server/' + 'resources/getResourcesList.do',{},{params:{
                 pageNum:pageNum,
                 pageSize:pageSize,
-                type:$scope.type,
-                number:$scope.number,
-                mobile:$scope.mobile,
                 status:$scope.status,
-                title:$scope.title,
             }}).success(function (data) {
                 if (data.code == 0) {
                     $scope.taskKindLists=data.result;
@@ -633,7 +629,7 @@
 
 
         init = function() {
-            $http.post('http://localhost:8080/blue-server/' + 'invoice/getInvoiceList.do',{},{params:{
+            $http.post('http://localhost:8080/study-server/' + 'resources/getResourcesList.do',{},{params:{
                 pageNum:1,
                 pageSize:$scope.numPerPage,
             }}).success(function (data) {
@@ -770,7 +766,7 @@
                     // console.log('确定')
 
 
-                var modifyTopicUrl ="http://localhost:8080/blue-server/"+"user/exmain.do";// 接收上传文件的后台地址
+                var modifyTopicUrl ="http://localhost:8080/study-server/"+"user/exmain.do";// 接收上传文件的后台地址
                     console.log($scope.selected);
                     var temp = "";
 
@@ -850,7 +846,7 @@
 
 
 
-           $http.post('http://localhost:8080/blue-server/' + 'taskKind/getTaskKindList.do',{},{params:{
+           $http.post('http://localhost:8080/study-server/' + 'taskKind/getTaskKindList.do',{},{params:{
             taskKindId:$scope.kwTaskKindId,
 
                 userId:$scope.kwUserId ,
@@ -895,14 +891,14 @@
                             .cancel('取消');
                             $mdDialog.show(confirm).then(function() {
                     // console.log('确定')
-                    $http.post("http://localhost:8080/blue-server/"+"invoice/modifyInvoice.do?",{},{params:{
-                        invoiceId:id,
+                    $http.post("http://localhost:8080/study-server/"+"resources/upOrDown.do?",{},{params:{
+                        resourceId:id,
                         status:status
                     }}).success(function (data){
                         if(data.code == 0){
                             $scope.showAlert("操作成功");
                             for (var i = 0; i < $scope.stores.length; i++) {
-                                if ($scope.stores[i].invoiceId==id) {
+                                if ($scope.stores[i].id==id) {
                                     $scope.stores[i].status=status;
                                     break;
                                 }
@@ -939,7 +935,7 @@
                 .ok('确定')
                 .cancel('取消');
                 $mdDialog.show(confirm).then(function(){
-                    $http.post("http://localhost:8080/blue-server/"+"elite/addElite.do?",{},{params:{
+                    $http.post("http://localhost:8080/study-server/"+"elite/addElite.do?",{},{params:{
                         taskKindId:id,
                     }}).success(function(data){
                         if(data.errorCode == 0){
@@ -995,7 +991,7 @@
 
         $scope.taskKindId = $location.search().id;
 
-        $http.post('http://localhost:8080/blue-server/' + 'user/getUser.do',{},{params:{
+        $http.post('http://localhost:8080/study-server/' + 'user/getUser.do',{},{params:{
             userId:$scope.taskKindId
         }}).success( function (data){
             console.log($scope.taskKindId);
@@ -1012,8 +1008,8 @@
         //下载营业执照
         $scope.download=function(path){
             console.log(path);
-            window.location="http://localhost:8080/blue-server/user/download.do?relativePath="+path;
-        //     $http.post('http://localhost:8080/blue-server/user/download.do',{},{params:{
+            window.location="http://localhost:8080/study-server/user/download.do?relativePath="+path;
+        //     $http.post('http://localhost:8080/study-server/user/download.do',{},{params:{
         //     relativePath:path
         // }}).success( function (data){
         // });
@@ -1049,7 +1045,7 @@
         //审核通过
         $scope.exmainPass=function(){
             //表单回显
-        $http.post('http://localhost:8080/blue-server/' + 'app/examinPass.do',{},{params:{
+        $http.post('http://localhost:8080/study-server/' + 'app/examinPass.do',{},{params:{
             appId:$scope.applicationId   //管理员Id
         }}).success( function (data){   
             if(data.code == 0){
@@ -1064,7 +1060,7 @@
         //审核失败
         $scope.exmainFail=function(){
             
-        $http.post('http://localhost:8080/blue-server/' + 'app/examinFail.do',{},{params:{
+        $http.post('http://localhost:8080/study-server/' + 'app/examinFail.do',{},{params:{
             appId:$scope.applicationId   //管理员Id
         }}).success( function (data){   
             if(data.code == 0){
@@ -1078,7 +1074,7 @@
         
         
         //表单回显
-        $http.post('http://localhost:8080/blue-server/' + 'app/getAppDetailInfo.do',{},{params:{
+        $http.post('http://localhost:8080/study-server/' + 'app/getAppDetailInfo.do',{},{params:{
             appId:$scope.applicationId   //管理员Id
         }}).success( function (data){   
             if(data.code == 0){
@@ -1110,7 +1106,7 @@
             }
 
 
-            $http.post('http://localhost:8080/blue-server/' + 'application/modifApplication.do', {}, {
+            $http.post('http://localhost:8080/study-server/' + 'application/modifApplication.do', {}, {
                 params: {
                     email: $scope.application.email,
                     newPwd: $scope.application.newPassword,
@@ -1157,7 +1153,7 @@
 
         $scope.doUploadPhoto=function(element){
 
-            $scope.fileObj = element.files[0];
+            $scope.fileObj = element.files;
         }
         
 
@@ -1183,16 +1179,7 @@
             }
         }
 
-        //获取地区信息
-
-        $http.post('http://localhost:8080/blue-server/' + 'address/getProvinces.do',{},{params:{
-            }}).success(function (data) {
-                if (data.code == 0) {
-                    $scope.provinces=data.result;
-                    console.log($scope.provinces)
-                }
-            });
-
+        
 
         $scope.addtaskKind = function(){
             $scope.showConfirm = function() {
@@ -1203,40 +1190,18 @@
                             .cancel('取消认证');
                             $mdDialog.show(confirm).then(function() {
                     // console.log('确定')
-                    var addTaskKindUrl ="http://localhost:8080/blue-server/" + "user/authentication.do?";
+                    var addTaskKindUrl ="http://localhost:8080/study-server/" + "resources/addResources.do?";
                     // FormData 对象
                     var form = new FormData();
                     form.append("type", $scope.type);
-                    form.append("userName", $scope.userName);
-                    form.append("realName", $scope.realName);
-                    form.append("enterpriseName", $scope.enterpriseName);
-                    form.append("publishName", $scope.publishName);
-                    form.append("number", $scope.number);
-
-                    //如果是注册企业开发者
-                    if ($scope.type==2) {
-                        
-                        for (var i = $scope.provinces.length - 1; i >= 0; i--) {
-                            if ($scope.provinces[i].provinceCode==$scope.registerCode) {
-                                form.append("registerAddress", $scope.provinces[i].provinceName);  //添加营业执照注册地址
-                            }   
-                        }
-
-                        //添加营业执照
-                        form.append("businessLicense", $scope.fileObj);
-                    }else if ($scope.type==1) {}{   //个人开发者
-                        form.append("idCardImage", $scope.fileObj);   //添加身份证图片
+                    form.append("content", $scope.content);
+                    form.append("status", $scope.status);
+                    form.append("fileType", $scope.fileType);
+                    
+                    for(var i=0;i<$scope.fileObj.length;i++){
+                    	form.append("files", $scope.fileObj[i]);
                     }
-
                     
-                    
-                    form.append("contactPerson", $scope.contactPerson);
-                    form.append("contactMobile", $scope.contactMobile);
-                    form.append("contactAddress", $scope.contactAddress);
-                    form.append("email", $scope.email);
-                    form.append("qq", $scope.qq);
-                    form.append("website", $scope.website);
-                    form.append("provinceCode", $scope.provinceCode);
 
                     
 
@@ -1250,7 +1215,7 @@
                             if (xhr.status == 200) {//200代表执行成功
                             var data=eval("("+xhr.responseText+")");
                             if (data.code==0) {
-                                $scope.showAlert("您的信息已成功提交审核！");
+                                $scope.showAlert("添加成功！");
                             }else{
                                 $scope.showAlert(data.message);
                              

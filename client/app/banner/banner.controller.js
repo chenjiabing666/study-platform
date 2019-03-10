@@ -81,11 +81,11 @@
         function getBannerList(pageNum, pageSize) {
             
 
-            $http.post('http://localhost:8080/applicationMarket-server/' + 'banner/getBannerList.do', {}, {
+            $http.post('http://localhost:8080/study-server/' + 'banner/getBannerList.do', {}, {
                 params: {
                     pageNum: pageNum,
                     pageSize: pageSize,
-                    platform:$scope.platform
+                    title:$scope.title
                 }
             }).success(function(data) {
                 if (data.code == 0) {
@@ -140,7 +140,7 @@
                     // //console.log('确定')
                     $http({
                         method: 'post',
-                        url: 'http://localhost:8080/applicationMarket-server/' + 'banner/topBanner.do',
+                        url: 'http://localhost:8080/study-server/' + 'banner/topBanner.do',
                         data: $.param({
                             bannerId: id
                             // activated: 2
@@ -196,7 +196,7 @@
                     // //console.log('确定')
                     $http({
                         method: 'post',
-                        url: 'http://localhost:8080/applicationMarket-server/' + 'banner/upBanner.do',
+                        url: 'http://localhost:8080/study-server/' + 'banner/upBanner.do',
                         data: $.param({
                             bannerId: id
                             // activated: 2
@@ -254,7 +254,7 @@
                     // //console.log('确定')
                     $http({
                         method: 'post',
-                        url: 'http://localhost:8080/applicationMarket-server/' + 'banner/downBanner.do',
+                        url: 'http://localhost:8080/study-server/' + 'banner/downBanner.do',
                         data: $.param({
                             bannerId: id
                             // activated: 1
@@ -299,7 +299,7 @@
             $scope.showConfirm();
         }
         init = function() {
-            $http.post('http://localhost:8080/applicationMarket-server/' + 'banner/getBannerList.do', {}, {
+            $http.post('http://localhost:8080/study-server/' + 'banner/getBannerList.do', {}, {
                 params: {
                     pageNum: 1,
                     pageSize: $scope.numPerPage
@@ -311,7 +311,7 @@
                     $scope.stores = data.result;
                     $scope.currentPageStores = data.result;
                     $scope.filteredStores = data.result;
-                    $scope.currentPageStores.$apply;
+//                  $scope.currentPageStores.$apply;
                     $scope.total = data.total;
                 };
             });
@@ -328,9 +328,9 @@
                     .ok('确定').cancel('取消');
                 $mdDialog.show(confirm).then(function() {
                     // //console.log('确定')
-                    $http.post('http://localhost:8080/applicationMarket-server/' + 'banner/deleteBanner.do', {}, {
+                    $http.post('http://localhost:8080/study-server/' + 'banner/deleteBannerById.do', {}, {
                 params: {
-                    bannerId:id
+                    id:id
                 }
             }).success(function(data) {
                 if (data.code == 0) {
@@ -386,7 +386,7 @@
         function initall(pageNum, pageSize) {
             $http({
                 method: 'POST',
-                url: 'http://localhost:8080/applicationMarket-server/' + 'banner/getBannerList.do',
+                url: 'http://localhost:8080/study-server/' + 'banner/getBannerList.do',
                 data: $.param({
                     pageNum: 1,
                     pageSize: 200
@@ -663,7 +663,7 @@
                 $scope.appName="";
             }
 
-            $http.post("http://localhost:8080/applicationMarket-server/"+"app/searchByAppName.do?",{},{params:{
+            $http.post("http://localhost:8080/study-server/"+"app/searchByAppName.do?",{},{params:{
                         appName:$scope.appName,
                         platform:$scope.platform
                     }}).success(function (data){
@@ -714,16 +714,16 @@
                     // .targetEvent(ev)
                     .ok('确定').cancel('取消');
                 $mdDialog.show(confirm).then(function() {
-                    var addBannerUrl = "http://localhost:8080/applicationMarket-server/" + "banner/addBanner.do"; // 接收上传文件的后台地址
+                    var addBannerUrl = "http://localhost:8080/study-server/" + "banner/addBanner.do"; // 接收上传文件的后台地址
 
                     var form = new FormData();
-                    // form.append("page", $scope.banner.page); // 可以增加表单数据 bannerName
-                    form.append("location", $scope.banner.bannerLocation);
-                    // form.append("bannerLocation", $scope.banner.bannerLocation);  
-                    form.append("appId", $scope.banner.appId);
-                    form.append("activated", $scope.banner.activated);
+
+
+
+
+                    form.append("status", $scope.banner.activated);
                     form.append("file", $scope.imageFileObj);
-                    form.append("platform", $scope.platform);
+                    form.append("sort", $scope.banner.sort);
                     
                     var xhr = new XMLHttpRequest();
                     var response;
@@ -835,7 +835,7 @@
                     .ok('确定').cancel('取消');
                 $mdDialog.show(confirm).then(function() {
                     // $http.post("http://139.196.7.76:8080/chinatravel-server/"+"Banner/addBanner",{})
-                    var addImageUrl = "http://localhost:8080/applicationMarket-server/" + "image/addImage.do"; // 接收上传文件的后台地址
+                    var addImageUrl = "http://localhost:8080/study-server/" + "image/addImage.do"; // 接收上传文件的后台地址
                     // FormData 对象
                     var form = new FormData();
                     //console.log($scope.banner.type);
@@ -916,7 +916,7 @@
         }
 
         function getAwardList(pageNum, pageSize) {
-            $http.post('http://localhost:8080/applicationMarket-server/' + 'image/getImageList.do', {}, {
+            $http.post('http://localhost:8080/study-server/' + 'image/getImageList.do', {}, {
                 params: {
                     pageNum: pageNum,
                     pageSize: pageSize
@@ -958,7 +958,7 @@
         };
         init = function() {
             console.log($scope.numPerPage);
-            $http.post('http://localhost:8080/applicationMarket-server/' + 'image/getImageList.do', {}, {
+            $http.post('http://localhost:8080/study-server/' + 'image/getImageList.do', {}, {
                 params: {
                     pageNum: 1,
                     pageSize: $scope.numPerPage,
@@ -983,7 +983,7 @@
                     .ok('确定').cancel('取消');
                 $mdDialog.show(confirm).then(function() {
                     // console.log('确定')
-                    $http.post("http://localhost:8080/applicationMarket-server/" + "image/deleteImage.do?", {}, {
+                    $http.post("http://localhost:8080/study-server/" + "image/deleteImage.do?", {}, {
                         params: {
                             imageId: id
                         }
@@ -1016,7 +1016,7 @@
                     // .targetEvent(ev)
                     .ok('确定').cancel('取消');
                 $mdDialog.show(confirm).then(function() {
-                    $http.post("http://localhost:8080/applicationMarket-server/" + "award/modifyAward.do?", {}, {
+                    $http.post("http://localhost:8080/study-server/" + "award/modifyAward.do?", {}, {
                         params: {
                             awardId: $scope.awardId,
                             awardName: $scope.awardName,
@@ -1057,7 +1057,7 @@ function ChangeBannerCtrl($scope,$http,$location,$mdDialog,$timeout){
     }
     $scope.platform="" ;  //平台信息
     $scope.bannerId = $location.search().id;
-    $http.post("http://localhost:8080/applicationMarket-server/"+"banner/getBanner.do?",{},{params:{
+    $http.post("http://localhost:8080/study-server/"+"banner/getBanner.do?",{},{params:{
         bannerId:$scope.bannerId
     }}).success(function (data){
         if(data.code == 0){
@@ -1088,7 +1088,7 @@ function ChangeBannerCtrl($scope,$http,$location,$mdDialog,$timeout){
                 $scope.appName="";
             }
 
-            $http.post("http://localhost:8080/applicationMarket-server/"+"app/searchByAppName.do?",{},{params:{
+            $http.post("http://localhost:8080/study-server/"+"app/searchByAppName.do?",{},{params:{
                         appName:$scope.appName,
                         platform:$scope.app.plateform
                     }}).success(function (data){
@@ -1147,7 +1147,7 @@ function ChangeBannerCtrl($scope,$http,$location,$mdDialog,$timeout){
                             .cancel('取消修改');
                             $mdDialog.show(confirm).then(function() {
                     // console.log('确定')
-                    var changeBannerUrl ="http://localhost:8080/applicationMarket-server/" + "banner/modifyBanner.do?";
+                    var changeBannerUrl ="http://localhost:8080/study-server/" + "banner/modifyBanner.do?";
 
                     var form = new FormData();
                      // form.append("page", $scope.banner.bannerPageLocation); // 可以增加表单数据 bannerName

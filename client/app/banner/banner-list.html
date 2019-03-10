@@ -1,6 +1,6 @@
 
 <div class="page page-table" ng-controller="BannerCtrl">
-    <div class="row ui-section" ng-show="isShow==1">
+    <div class="row ui-section">
         <div class="col-md-12">
             <div class="col-md-6 clearfix">
                 <h2 class="section-header">
@@ -12,7 +12,7 @@
         
 
          <div class="row">
-                    <label class="col-sm-3 col-xs-3">
+                    <!--<label class="col-sm-3 col-xs-3">
                         <span >平台:</span>
                         
                         <select  class="border-radius-5 border-default ml-10 input-default input-w-50" data-ng-model="platform" data-ng-change="search()">
@@ -20,7 +20,13 @@
                           <option value="1">移动应用Android</option>
                           <option  value="2" >移动应用IOS</option>
                         </select> 
-                    </label>
+                    </label>-->
+                    
+                    
+                    <!--<label class="col-sm-3 col-xs-3">
+                        <span >标题:</span>	
+                        <input type="text" class="border-radius-5 border-default ml-10 input-default input-w-50" data-ng-model="title" data-ng-change="search()"/>
+                    </label>-->
         </div>
 
         <div class="row">
@@ -53,11 +59,11 @@
                                     广告展示
                                 </div>
                             </th>
-                            <th>
+                            <!--<th>
                                 <div class="th">
                                     广告位置
                                 </div>
-                            </th>
+                            </th>-->
                             <th>
                                 <div class="th">
                                    状态
@@ -79,8 +85,8 @@
                     </thead>
 
                     <tbody>
-                        <tr class="delete-{{store.bannerId}}" data-ng-repeat="store in stores">
-                            <td ng-bind="store.bannerId"></td>
+                        <tr class="delete-{{store.id}}" data-ng-repeat="store in stores">
+                            <td ng-bind="store.id"></td>
 <!-- 
                             <td class="bannerlink">
                                 
@@ -93,7 +99,7 @@
                                 <a href="{{store.imageUrl}}" target="_blank"><img src="{{store.imageUrl}}" style="height: 100px;width: 100px;"></a>
                             </td>
 
-                            <td ng-bind="store.bannerLocation"></td>
+
 
                             <td class="bannerlink">
                                 <p ng-if="store.activated==1">启用</p>
@@ -105,14 +111,14 @@
 
                                 <td class="opertation" nowrap="nowrap">
                                     
-                                    <a href="#/banner/banner-change?id={{store.bannerId}}">
+                                    <!--<a href="#/banner/banner-change?id={{store.bannerId}}">
                                         修改
-                                    </a>
+                                    </a>-->
                                     <!-- <a href="" ng-click="topBanner(store.bannerId)">
                                         置顶
                                     </a> -->
 
-                                    <a href="" ng-click="deleteBanner(store.bannerId)">
+                                    <a href="" ng-click="deleteBanner(store.id)">
                                         删除
                                     </a>
                                 </td>

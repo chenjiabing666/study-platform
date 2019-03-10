@@ -4,18 +4,18 @@
     <div class="row ui-section">
     <div class="col-md-12">
         <div class="col-md-8 clearfix">
-            <h2 class="section-header">发票管理</h2>
+            <h2 class="section-header">资源列表</h2>
         </div>
         
     </div>
-    <div class="col-md-12" ng-show="isShow == 1">
+    <div class="col-md-12">
         <section class="panel panel-default table-dynamic">
           <div class="table-filters">
             <div class="row">
             <div class="col-sm-12 col-xs-12" >
                 <form class="taskKind_list_header">
 
-                    <label class="col-sm-2 col-xs-2">
+                    <!--<label class="col-sm-2 col-xs-2">
                                 <span >发票类型:</span>
                                 <select data-ng-model="type" class="border-radius-5 border-default ml-10 input-default input-w-50" data-ng-change="search()">
                                     <option value="">全部</option>
@@ -41,7 +41,7 @@
                         <span>发票抬头:</span>
                         <input type="text" id="realName" class="border-radius-5 border-default ml-10 input-default input-w-30"
                         data-ng-model="title" data-ng-keyup="search()">
-                    </label>
+                    </label>-->
 
                     <!-- <label class="col-sm-3 col-xs-3">
                                 <span >地区:</span>
@@ -57,13 +57,12 @@
                         data-ng-model="feedBackDate"  data-ng-keyup="search()" data-ng-change="search()">
                     </label>
  -->
-                    <label class="col-sm-2 col-xs-2">
+                    <label class="col-sm-6 col-xs-6">
                                 <span >状态:</span>
-                                <select data-ng-model="status" class="border-radius-5 border-default ml-10 input-default input-w-30" data-ng-change="search()">
+                                <select data-ng-model="status" class="border-radius-5 border-default ml-10 input-default input-w-50" data-ng-change="search()">
                                     <option value="">全部</option>
-                                    <option value="1">已开具</option>
-                                    <option value="2">未处理</option>
-                                    <option value="3">已邮寄</option>
+                                    <option value="1">上架</option>
+                                    <option value="2">下架</option>
                                 </select>
                     </label>
 
@@ -99,21 +98,21 @@
                 ID
                 </div></th>
                 <th><div class="th">
-                发票金额
+                内容
                 </div></th>
                <!--  <th><div class="th">
                 发票种类
                 </div></th> -->
                 <th><div class="th">
-                发票类型
+                类型
                 </div></th>
                 <!-- <th><div class="th">
                 认证类型
                 </div></th> -->
                 <th><div class="th">
-                发票抬头
+                状态
                 </div></th>
-                <th><div class="th">
+                <!--<th><div class="th">
                 纳税人识别号
                 </div></th>
 
@@ -135,7 +134,7 @@
 
                 <th><div class="th">
                 状态
-                </div></th>
+                </div></th>-->
                 <!-- <th><div class="th">
                 创建时间
                 </div></th> -->
@@ -146,24 +145,20 @@
 
             </thead>
             <tbody>
-              <tr data-ng-repeat="store in currentPageStores" class="delete-{{store.invoiceId}}">
+              <tr data-ng-repeat="store in currentPageStores" class="delete-{{store.id}}">
                 <!-- <td> <md-checkbox ng-click="selectItem(store.userId)" ng-checked="selected[store.userId]"></md-checkbox></td> -->
-                <td ng-bind="store.invoiceId"></td>
-                <td ng-bind="store.amout"></td>
+                <td ng-bind="store.id"></td>
+                <td ng-bind="store.content"></td>
                 <td>
-                    <p ng-show="store.type==1">个人</p>
-                    <p ng-show="store.type==2">公司</p>
+                    <p ng-show="store.type==1">仁者乐山</p>
+                    <p ng-show="store.type==2">智者乐水</p>
+                    <p ng-show="store.type==3">桥梁建筑</p>
+                    <p ng-show="store.type==4">其他</p>
                 </td>
-                <td ng-bind="store.title"></td>
-                <td ng-bind="store.number"></td>
-                <td ng-bind="store.mobile"></td>
-                <td ng-bind="store.email"></td>
-                <td ng-bind="store.address"></td>
-                <td ng-bind="store.name"></td>
+                
                 <td>
-                    <p ng-if="store.status==1">已开具</p>
-                    <p ng-if="store.status==2">未处理</p>
-                    <p ng-if="store.status==3">已邮寄</p>
+                    <p ng-if="store.status==1">上架</p>
+                    <p ng-if="store.status==2">下架</p>
                 </td>
                 <!-- <td ng-bind="store.realName"></td>
 
@@ -175,8 +170,8 @@
                 <td ng-bind="store.createdDate | date:'yyyy-MM-dd HH:mm:ss'"></td> -->          
                 <td class="opertation">
                     <!-- <a href="#/taskKind/taskKind-change?id={{store.userId}}">编辑</a> -->
-                    <a href="" ng-click="deleteTaskKind(store.invoiceId,1)">已开具</a>
-                    <a href="" ng-click="deleteTaskKind(store.invoiceId,3)">已邮寄</a>
+                    <a href="" ng-click="deleteTaskKind(store.id,1)" ng-show="store.status==2">上架</a>
+                    <a href="" ng-click="deleteTaskKind(store.id,2)" ng-show="store.status==1">下架</a>
                     <!-- <a href="#/taskKind/taskKind-detail?id={{store.userId}}">详情</a> -->
                    <!--  <a href="#/taskDuration/taskDuration-list?id={{store.userId}}">时长</a>
                     <a href="#/taskReward/taskReward-list?id={{store.userId}}">打赏</a> -->
