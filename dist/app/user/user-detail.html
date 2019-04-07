@@ -8,7 +8,7 @@
         <div class="col-md-8 clearfix"> 
             <md-button class="md-raised btn-w-md md-primary changeClick" ng-click="backClick()">返回</md-button><div class="divider"></div>
         </div>
-        <div class="col-md-12" ng-show="isShow==1">
+        <div class="col-md-12" >
             <div class="row">
                         <div class="col-md-2"></div>
                          <div class="col-md-4">
@@ -28,20 +28,20 @@
                                         <div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">头像：</label>
                                             <div class="col-sm-2">
-                                                <img class="showImage scaleImg" src="{{user.userIcon}}" alt="" >
+                                                <img class="showImage scaleImg" src="{{user.icon}}" alt="" >
                                             </div>
                                         </div>
 
                                         <div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">用户Id：</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" class="userId" ng-model="user.userId" ng-disabled="true">
+                                                <input class="form-control" class="userId" ng-model="user.id" ng-disabled="true">
                                             </div>
                                         </div>
                                         <div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">用户账号：</label>
                                             <div class="col-sm-9">
-                                                <input class="form-control" class="userId" ng-model="user.userName" ng-disabled="true">
+                                                <input class="form-control" class="userId" ng-model="user.mobile" ng-disabled="true">
                                             </div>
                                         </div>
                                         <!-- <div class="form-group clearfix">
@@ -76,27 +76,27 @@
                                                 <input class="form-control" class="mobile" ng-model="user.age" ng-disabled="true">
                                             </div>
                                         </div> -->
-                                         <div class="form-group clearfix">
+                                         <!--<div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">性别：</label>
                                             <div class="col-sm-9">
                                                 <input class="form-control" class="gender" ng-model="user.gender" ng-disabled="true">
                                             </div>
-                                        </div>
+                                        </div>-->
 
-                                        <div class="form-group clearfix">
+                                        <!--<div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">地址：</label>
                                             <div class="col-sm-9">
                                                 <input class="form-control" class="vipType" ng-model="user.address" ng-disabled="true">
                                             </div>
                                         </div>
-                                        
+                                        -->
 
-                                        <div class="form-group clearfix">
+                                        <!--<div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">用户类型：</label>
                                             <div class="col-sm-9">
                                                 <input class="form-control" class="createdDate" ng-model="user.userType" ng-disabled="true">
                                             </div>
-                                        </div>
+                                        </div>-->
 
 
                                         <div class="form-group clearfix">
@@ -106,12 +106,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group clearfix">
+                                        <!--<div class="form-group clearfix">
                                             <label for="" class="col-sm-3 control-label">最后登录时间：</label>
                                             <div class="col-sm-9">
                                                 <input class="form-control" class="lastLoginTime" ng-model="user.lastLoginDate" ng-disabled="true">
                                             </div>
-                                        </div>
+                                        </div>-->
 
                                        
                                         <!-- <div class="form-group clearfix">

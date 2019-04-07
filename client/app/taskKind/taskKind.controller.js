@@ -557,6 +557,7 @@
                 pageNum:pageNum,
                 pageSize:pageSize,
                 status:$scope.status,
+                type:$scope.type
             }}).success(function (data) {
                 if (data.code == 0) {
                     $scope.taskKindLists=data.result;
@@ -1185,9 +1186,9 @@
             $scope.showConfirm = function() {
                             // 确定
                             var confirm = $mdDialog.confirm()
-                            .title('是否对同意认证并注册')
-                            .ok('确定认证')
-                            .cancel('取消认证');
+                            .title('是否确认添加')
+                            .ok('确定')
+                            .cancel('取消');
                             $mdDialog.show(confirm).then(function() {
                     // console.log('确定')
                     var addTaskKindUrl ="http://localhost:8080/study-server/" + "resources/addResources.do?";

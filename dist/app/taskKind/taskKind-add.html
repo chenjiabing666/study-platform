@@ -4,11 +4,11 @@
 
 
     <div class="row ui-section">
-        <div class="col-lg-8 clearfix"> <h2 class="section-header">开发者认证</h2> </div>
+        <div class="col-lg-8 clearfix"> <h2 class="section-header">添加资源</h2> </div>
         <div class="col-md-8 clearfix"> 
             <md-button class="md-raised btn-w-md md-primary changeClick" ng-click="backClick()">返回</md-button><div class="divider"></div>
         </div>
-        <div class="col-md-12" ng-show="isShow==1">
+        <div class="col-md-12">
             <section class="panel panel-default">
                 <div class="panel-body">
                     <div class="row taskKind-detail" >
@@ -18,30 +18,55 @@
                                 <md-content layout-padding>
                                 <form name="taskKindForm" class="taskKindForm">
 
+                                    
 
-
+                                    
                                     <div class="form-group clearfix">
-                                        <label for="" class="col-sm-3 control-label">认证类型</label>
+                                        <label for="" class="col-sm-3 control-label">内容：</label>
                                         <div class="col-sm-9">
-                                            <select name="select" id="isRecommend" data-ng-change="search()" data-ng-model="type">
+                                            <textarea class="form-control" rows="10" cols="40" ng-model="content"></textarea>
+                                        </div>
+                                    </div>
+
+
+									<div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">资源类别</label>
+                                        <div class="col-sm-9">
+                                            <select name="select" id="isRecommend" data-ng-model="type">
                                                 <option  value="">请选择</option>
-                                                <option  value="1">个人开发者</option>
-                                                <option  value="2">企业开发者</option>
+                                                <option  value="1">仁者乐山</option>
+                                                <option  value="2">智者乐水</option>
+                                                <option  value="3">桥梁建筑</option>
+                                                <option  value="4">其他</option>
                                             </select>   
                                         </div>
                                     </div>
-
                                     
                                     <div class="form-group clearfix">
-                                        <label for="" class="col-sm-3 control-label">注册账号：</label>
+                                        <label for="" class="col-sm-3 control-label">文件类型</label>
                                         <div class="col-sm-9">
-                                            <input class="form-control" class="title" ng-model="userName">
+                                            <select name="select" id="isRecommend" data-ng-model="fileType">
+                                                <option  value="">请选择</option>
+                                                <option  value="1">视频</option>
+                                                <option  value="2">图片</option>
+                                            </select>   
                                         </div>
                                     </div>
-
+                                    
+                                    
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">状态</label>
+                                        <div class="col-sm-9">
+                                            <select name="select" id="isRecommend" data-ng-model="status">
+                                                <option  value="">请选择</option>
+                                                <option  value="1">上架</option>
+                                                <option  value="2">下架</option>
+                                            </select>   
+                                        </div>
+                                    </div>
                                     
 
-                                    <div class="form-group clearfix" ng-show="type==2">
+                                    <!--<div class="form-group clearfix" ng-show="type==2">
                                         <label for="" class="col-sm-3 control-label">企业名称</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" class="title" ng-model="enterpriseName">
@@ -60,26 +85,26 @@
                                         <div class="col-sm-9">
                                             <input class="form-control" class="title" ng-model="publishName">
                                         </div>
-                                    </div>
+                                    </div>-->
                                     
 
-                                    <div class="form-group clearfix" ng-show="type==2">
-                                        <label for="" class="col-sm-3 control-label">营业执照：</label>
+                                    <div class="form-group clearfix">
+                                        <label for="" class="col-sm-3 control-label">文件：</label>
                                         <div class="col-sm-9">
                                             <input type="file" class="taskKindFile taskKindFile" ng-model="file"  multiple ng-submit="doUploadPhoto()" onchange="angular.element(this).scope().doUploadPhoto(this)">
                                             <ul class="img-list "  style="height: 50px;"> </ul> 
                                         </div>
                                     </div>
 
-                                    <div class="form-group clearfix" ng-show="type==2">
+                                    <!--<div class="form-group clearfix" ng-show="type==2">
                                         <label for="" class="col-sm-3 control-label">营业执照注册号：</label>
                                         <div class="col-sm-9">
                                             <input class="form-control" class="title" ng-model="number">
                                         </div>
-                                    </div>
+                                    </div>-->
 
 
-                                    <div class="form-group clearfix" ng-show="type==2">
+                                    <!--<div class="form-group clearfix" ng-show="type==2">
                                         <label for="" class="col-sm-3 control-label">注册地址：</label>
                                         <div class="col-sm-9">
                                            <select data-ng-model="registerCode"  data-ng-change="search()">
@@ -150,13 +175,13 @@
                                         <div class="col-sm-9">
                                             <input class="form-control" class="title" ng-model="website">
                                         </div>
-                                    </div>
+                                    </div>-->
 
-                                    <div class="form-group clearfix">
+                                    <!--<div class="form-group clearfix">
                                         <div class="col-sm-9">
                                             <input type="checkbox"  class="title" ng-model="isAgree" value="1"> 我已阅读并同意《服务条款》
                                         </div>
-                                    </div>
+                                    </div>-->
                                     
 
                                     <!-- <div class="form-group clearfix">
@@ -209,8 +234,8 @@
                                         </section>
                                     </div>
  -->
-                                    <div layout layout-sm='column' class="changeConfirm add-btn" ng-show="isAgree==1">
-                                        <md-button class="md-raised btn-w-md md-primary" ng-click="addtaskKind()">同意并注册开发者</md-button><div class="divider"></div>
+                                    <div layout layout-sm='column' class="changeConfirm add-btn">
+                                        <md-button class="md-raised btn-w-md md-primary" ng-click="addtaskKind()">确认添加</md-button><div class="divider"></div>
                                     </div>
 
                                 </form>
